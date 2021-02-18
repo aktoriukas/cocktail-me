@@ -1,0 +1,71 @@
+#cocktails{
+    --sides: 2rem;
+    --top: 5rem;
+    position: relative;
+    padding-top: var(--top);
+    .left, .right{
+        padding: 2rem 1rem;
+    }
+    .left{
+        max-width: 40%;
+        .cocktail-list{
+            li{
+                font-size: $xx-large;
+                cursor: pointer;
+            }
+        }
+    }
+    .right{
+        max-width: 50%;
+        position: fixed;
+        right: var(--sides);
+        top: var(--top);
+        .container{
+            background-color: grey;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;    
+            padding:2rem 1rem;
+            border-radius: 1rem;
+        }
+        .img-container{
+            max-width: 50%;
+            border-radius: 5rem;
+            overflow: hidden;
+            margin: auto;
+            img{width: 100%;}
+        }
+        .name{
+            font-size: $xxx-large;
+            text-align: center;
+            margin-bottom: 2rem;
+            font-family: var(--font-Abril);
+            letter-spacing: 5px;
+        }
+        .ingredience {
+            padding: 2rem 0;
+            tbody{
+                tr{
+                    display: flex;
+                    td{
+                        flex: 0 0 50%;
+                        &:first-child{
+                            text-align: right;
+                            position: relative;
+                            &:after{
+                                content: '';
+                                position: absolute;
+                                height: 110%;
+                                width: 1px;
+                                right: 0;
+                                top: 0;
+                                background-color: var(--white);
+                            }
+                        }    
+                        padding: .5rem;
+                    }
+                }
+            }    
+        }
+    }
+}
