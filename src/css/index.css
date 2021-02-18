@@ -7,13 +7,12 @@
   --white: #ffffff;
   --clear-white: #ffffff6b;
   --off-white: #fafafa;
+  --clear-white: #ffffff78;
   --clear-red: #ff00006b;
   --clear-green: #00ff1135;
   --green: #093d0cd3;
-  --font-Abril:'Abril Fatface', cursive;
-  --font-open-sans: 'Open Sans', sans-serif;
-  scroll-behavior: smooth;
-  font-family: 'Open Sans', sans-serif; }
+  font-family: 'Roboto', sans-serif;
+  scroll-behavior: smooth; }
 
 body {
   margin: 0;
@@ -41,11 +40,9 @@ h6 {
   padding: 0; }
 
 h3 {
-  margin-bottom: 1rem;
-  font-size: 150%; }
+  margin-bottom: 1rem; }
 
 p, li {
-  font-size: 110%;
   line-height: 1.5; }
 
 button, input, textarea, select {
@@ -66,49 +63,55 @@ button, input, textarea, select {
     justify-content: space-around; }
 
 #cocktails {
-  --sides: 2rem;
-  --top: 5rem;
   position: relative;
-  padding-top: var(--top); }
+  max-width: 1500px;
+  margin: auto; }
   #cocktails .left, #cocktails .right {
     padding: 2rem 1rem; }
   #cocktails .left {
     max-width: 40%; }
     #cocktails .left .cocktail-list li {
-      font-size: 200%;
+      font-size: 300%;
+      font-weight: 300;
+      padding-bottom: .5rem;
       cursor: pointer; }
   #cocktails .right {
-    max-width: 50%;
+    width: 50%;
+    max-width: 800px;
     position: fixed;
-    right: var(--sides);
-    top: var(--top); }
+    right: 10%;
+    top: 50%;
+    transform: translateY(-50%); }
     #cocktails .right .container {
-      background-color: grey;
+      background-color: var(--clear-white);
       display: flex;
       flex-direction: column;
       justify-content: center;
       padding: 2rem 1rem;
-      border-radius: 1rem; }
+      border-radius: 1rem;
+      backdrop-filter: blur(10px); }
     #cocktails .right .img-container {
-      max-width: 50%;
-      border-radius: 5rem;
-      overflow: hidden;
+      width: 50%;
       margin: auto; }
       #cocktails .right .img-container img {
-        width: 100%; }
+        height: auto;
+        width: 100%;
+        border-radius: 5rem; }
     #cocktails .right .name {
-      font-size: 300%;
+      font-size: 400%;
       text-align: center;
       margin-bottom: 2rem;
-      font-family: var(--font-Abril);
-      letter-spacing: 5px; }
+      letter-spacing: 5px;
+      font-weight: 400; }
     #cocktails .right .ingredience {
       padding: 2rem 0; }
       #cocktails .right .ingredience tbody tr {
         display: flex; }
         #cocktails .right .ingredience tbody tr td {
           flex: 0 0 50%;
-          padding: .5rem; }
+          padding: .5rem;
+          font-size: 110%;
+          font-weight: 300; }
           #cocktails .right .ingredience tbody tr td:first-child {
             text-align: right;
             position: relative; }
@@ -120,5 +123,24 @@ button, input, textarea, select {
               right: 0;
               top: 0;
               background-color: var(--white); }
+    #cocktails .right .about {
+      max-width: 70%;
+      margin: auto;
+      font-size: 150%;
+      font-weight: 300; }
+
+#background {
+  position: fixed;
+  right: 0;
+  top: -15%;
+  z-index: -1;
+  width: 100%;
+  height: 150vh; }
+  #background img {
+    position: absolute;
+    right: 0;
+    width: auto;
+    min-width: 100%;
+    height: 130vh; }
 
 /*# sourceMappingURL=index.css.map */

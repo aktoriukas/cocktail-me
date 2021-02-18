@@ -1,8 +1,7 @@
 #cocktails{
-    --sides: 2rem;
-    --top: 5rem;
     position: relative;
-    padding-top: var(--top);
+    max-width: $xx-width;
+    margin: auto;
     .left, .right{
         padding: 2rem 1rem;
     }
@@ -10,37 +9,45 @@
         max-width: 40%;
         .cocktail-list{
             li{
-                font-size: $xx-large;
+                font-size: $xxx-large;
+                font-weight: $light;
+                padding-bottom: .5rem;
                 cursor: pointer;
             }
         }
     }
     .right{
-        max-width: 50%;
+        width: 50%;
+        max-width: $ys-width;
         position: fixed;
-        right: var(--sides);
-        top: var(--top);
+        right: 10%;
+        top: 50%;
+        transform: translateY(-50%);
         .container{
-            background-color: grey;
+            background-color: var(--clear-white);
             display: flex;
             flex-direction: column;
             justify-content: center;    
             padding:2rem 1rem;
             border-radius: 1rem;
+            backdrop-filter: blur(10px);
         }
         .img-container{
-            max-width: 50%;
-            border-radius: 5rem;
-            overflow: hidden;
+            width: 50%;
+            // overflow: hidden;
             margin: auto;
-            img{width: 100%;}
+            img{
+                height: auto;
+                width: 100%;
+                border-radius: 5rem;
+            }
         }
         .name{
-            font-size: $xxx-large;
+            font-size: $xxxx-large;
             text-align: center;
             margin-bottom: 2rem;
-            font-family: var(--font-Abril);
             letter-spacing: 5px;
+            font-weight: $w-regular;
         }
         .ingredience {
             padding: 2rem 0;
@@ -49,6 +56,9 @@
                     display: flex;
                     td{
                         flex: 0 0 50%;
+                        padding: .5rem;
+                        font-size: $regular;
+                        font-weight: $light;
                         &:first-child{
                             text-align: right;
                             position: relative;
@@ -62,10 +72,15 @@
                                 background-color: var(--white);
                             }
                         }    
-                        padding: .5rem;
                     }
                 }
             }    
+        }
+        .about{
+            max-width: 70%;
+            margin: auto;
+            font-size: $large;
+            font-weight: $light;
         }
     }
 }

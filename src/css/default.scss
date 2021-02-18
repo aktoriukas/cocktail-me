@@ -3,7 +3,7 @@
 $xx-bold:            800;
 $xy-bold:            600;
 $y-bold:             500;
-$regular:            400;
+$w-regular:            400;
 $light:              300;
 $xy-light:           200;
 $xx-light:           100;
@@ -31,16 +31,14 @@ $xxxx-large: 400%;
     --white: #ffffff;
     --clear-white: #ffffff6b;
     --off-white: #fafafa;
+    --clear-white: #ffffff78;
 
     --clear-red: #ff00006b;
     --clear-green: #00ff1135;
     --green: #093d0cd3;
 
-    --font-Abril:'Abril Fatface', cursive;
-    --font-open-sans: 'Open Sans', sans-serif;
-
+    font-family: 'Roboto', sans-serif;
     scroll-behavior: smooth;
-    font-family: 'Open Sans', sans-serif;
 }
 
 // BASICS ============================
@@ -72,10 +70,8 @@ h6 {
 }
 h3 {
     margin-bottom: 1rem;
-    font-size: $large;
 }
 p, li{
-    font-size: $regular;
     line-height: 1.5;
 }
 button, input, textarea,select {
