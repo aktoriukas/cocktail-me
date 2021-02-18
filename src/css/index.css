@@ -7,12 +7,15 @@
   --white: #ffffff;
   --clear-white: #ffffff6b;
   --off-white: #fafafa;
+  --clear-off-white: #e1e1e182;
   --clear-white: #ffffff78;
   --clear-red: #ff00006b;
   --clear-green: #00ff1135;
   --green: #093d0cd3;
   font-family: 'Roboto', sans-serif;
   scroll-behavior: smooth; }
+  * ::-webkit-scrollbar {
+    display: none; }
 
 body {
   margin: 0;
@@ -53,14 +56,39 @@ button, input, textarea, select {
 
 .navigation {
   position: fixed;
-  height: 2rem;
+  height: 100%;
   width: 100%;
-  background-color: grey; }
+  top: -100%;
+  background: var(--clear-white);
+  z-index: 10;
+  backdrop-filter: blur(1px);
+  transition: all 1s ease; }
   .navigation ul {
     height: 100%;
     display: flex;
-    flex-direction: row;
-    justify-content: space-around; }
+    flex-direction: column;
+    justify-content: center;
+    gap: 3rem; }
+    .navigation ul li {
+      margin: 0 auto;
+      width: fit-content;
+      font-size: 300%;
+      color: var(--off-white);
+      text-shadow: 1px 1px 10px var(--black); }
+  .navigation.open {
+    backdrop-filter: blur(10px);
+    top: 0; }
+
+.navigation-button {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+  z-index: 100;
+  top: .5rem;
+  transition: top 1s ease; }
+  .navigation-button.open {
+    top: 95%; }
 
 #cocktails {
   position: relative;
@@ -68,20 +96,67 @@ button, input, textarea, select {
   margin: auto; }
   #cocktails .left, #cocktails .right {
     padding: 2rem 1rem; }
+  #cocktails .active {
+    color: var(--clear-red) !important;
+    text-shadow: 0px 0px 1px var(--white) !important; }
   #cocktails .left {
     max-width: 40%; }
-    #cocktails .left .cocktail-list li {
-      font-size: 300%;
-      font-weight: 300;
-      padding-bottom: .5rem;
-      cursor: pointer; }
+    #cocktails .left .alphabet {
+      position: fixed;
+      height: 100%;
+      width: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      transition: all 1s ease;
+      overflow: hidden;
+      top: 0;
+      animation: slide-down .5s ease; }
+      #cocktails .left .alphabet .letter {
+        text-align: center;
+        cursor: pointer;
+        font-size: 80%;
+        font-weight: 300;
+        color: var(--clear-white);
+        text-shadow: 0px 0px 1px var(--black);
+        position: relative;
+        backdrop-filter: blur(10px); }
+        #cocktails .left .alphabet .letter:hover::after {
+          left: 0; }
+        #cocktails .left .alphabet .letter::after {
+          content: '';
+          position: absolute;
+          width: 100%;
+          height: 150%;
+          background-color: var(--clear-off-white);
+          top: -25%;
+          left: -100%;
+          transition: all .5s ease; }
+      #cocktails .left .alphabet:hover {
+        background-color: var(--white); }
+    #cocktails .left .cocktail-list {
+      margin-left: 3rem;
+      overflow-y: hidden; }
+      #cocktails .left .cocktail-list .item {
+        font-size: 300%;
+        font-weight: 300;
+        padding-bottom: .5rem;
+        cursor: pointer;
+        width: fit-content;
+        position: relative;
+        transition: all .2s ease;
+        left: 0;
+        animation: slide-right 1s ease; }
+        #cocktails .left .cocktail-list .item:hover {
+          letter-spacing: 5px; }
   #cocktails .right {
     width: 50%;
     max-width: 800px;
     position: fixed;
     right: 10%;
     top: 50%;
-    transform: translateY(-50%); }
+    transform: translateY(-50%);
+    animation: slide-left .5s ease; }
     #cocktails .right .container {
       background-color: var(--clear-white);
       display: flex;
@@ -129,6 +204,33 @@ button, input, textarea, select {
       font-size: 150%;
       font-weight: 300; }
 
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
+@keyframes slide-right {
+  0% {
+    left: -100%; }
+  100% {
+    left: 0; } }
+@keyframes slide-down {
+  0% {
+    top: -100%; }
+  100% {
+    top: 0; } }
+@keyframes slide-left {
+  0% {
+    right: -100%; }
+  100% {
+    right: 10%; } }
+@keyframes pulse-padding {
+  0% {
+    padding: 1rem; }
+  50% {
+    padding: 1.4rem; }
+  100% {
+    padding: 1rem; } }
 #background {
   position: fixed;
   right: 0;
@@ -142,5 +244,46 @@ button, input, textarea, select {
     width: auto;
     min-width: 100%;
     height: 130vh; }
+
+.arrow {
+  border: solid var(--off-black);
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 1rem;
+  transition: padding .5s ease-in-out, transform .2s ease-in; }
+  .arrow:hover {
+    animation: pulse-padding 1.2s infinite ease-in-out; }
+  .arrow.right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg); }
+  .arrow.left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg); }
+  .arrow.up {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg); }
+  .arrow.down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg); }
+
+.lds-dual-ring {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 20%; }
+
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid #fff;
+  border-color: #fff transparent #fff transparent;
+  animation: lds-dual-ring 1.2s linear infinite; }
 
 /*# sourceMappingURL=index.css.map */

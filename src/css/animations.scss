@@ -1,0 +1,44 @@
+@keyframes lds-dual-ring {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes slide-right {
+    0%{
+        left: -100%;
+    }
+    100%{
+        left: 0;
+    }
+}
+@keyframes slide-down {
+    0%{
+        top: -100%;
+    }
+    100%{
+        top: 0;
+    }
+}
+@keyframes slide-left {
+    0%{
+        right: -100%;
+    }
+    100%{
+        right: 10%;
+    }
+}
+@keyframes pulse-padding {
+    0%{
+        padding: 1rem;
+    }
+    50%{
+        padding: 1.4rem;
+    }
+    100%{
+        padding: 1rem;
+    }
+}
