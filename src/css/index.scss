@@ -3,6 +3,8 @@
 @import './cocktails.scss';
 @import './animations.scss';
 @import './submit.scss';
+@import './home.scss';
+@import './contacts.scss';
 
 #background{
     position: fixed;
@@ -46,6 +48,22 @@
     &.down {
         transform: rotate(45deg);
         -webkit-transform: rotate(45deg);
+    }
+}
+.card{
+    background: var(--clear-white);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 4rem 2rem;
+    left: 10%;
+    border-radius: 1rem;
+    animation: slide-right-10 1s ease;
+    .title{
+        font-size: $xxxx-large;
+        font-weight: $light;
+        margin-bottom: 1rem;
     }
 }
 

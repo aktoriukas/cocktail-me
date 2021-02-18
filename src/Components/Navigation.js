@@ -6,9 +6,9 @@ export default function Navigation(props) {
         <nav className={`navigation ${props.open ? 'open' : ''}`}>
             <ul>
                 <li onClick={props.toggleMenu}><Link to='/'>Home</Link></li>
-                <li onClick={props.toggleMenu}> <Link to='/about'>About</Link></li>
                 <li onClick={props.toggleMenu}> <Link to='/submit'>Submit</Link></li>
                 <li onClick={props.toggleMenu}> <Link to='/cocktails'>Cocktails</Link></li>
+                <li onClick={props.toggleMenu}> <Link to='/contacts'>Contacts</Link></li>
             </ul>
         </nav>
     )

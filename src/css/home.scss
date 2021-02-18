@@ -1,0 +1,15 @@
+#home{
+    li,p{
+        font-size: $xx-large;
+        font-weight: $light;
+    }
+    li{
+        margin-left: 3rem;
+        list-style: circle;
+    }
+    .cheers{
+        margin-top: 4rem;
+        text-align: right;
+        color: var(--clear-red);
+    }
+}

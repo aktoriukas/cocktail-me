@@ -14,10 +14,8 @@ export default function Submit() {
     for (let i = 0; i < ingrCount; i++) {
         ingredients.push(
             <div className='ingredient' key={i}>
-                <label>measure:</label>
-                <input placeholder='ml/part'></input>
-                <label>ingredient:</label>
-                <input placeholder='ingredient'></input>
+                <input className='measure' placeholder='ml/part'></input>
+                <input className='item' placeholder='ingredient'></input>
             </div>
         )
     }
@@ -36,12 +34,9 @@ export default function Submit() {
             <h2 className='title'>Submit your cocktail</h2>
             <form className='form'>
                 <div className='form-inner'>
-                    <label>Username:</label>
-                    <input />
-                    <label>Email:</label>
-                    <input />
-                    <label>Cocktail Name:</label>
-                    <input />
+                    <input placeholder='username' />
+                    <input placeholder='email' />
+                    <input placeholder='cocktail name' />
                     <div className='ingredients'>
                         {ingredients}
                     </div>
@@ -49,10 +44,8 @@ export default function Submit() {
                         <Button class='add' click={(e) => handleClick(e, 'add')} txt='add' />
                         <Button class='remove' click={(e) => handleClick(e, 'remove')} txt='remove' />
                     </div>
-                    <label>Method:</label>
-                    <textarea></textarea>
-                    <label>Story:</label>
-                    <textarea></textarea>
+                    <textarea placeholder='method'></textarea>
+                    <textarea placeholder='story'></textarea>
                 </div>
                 <Button class='submit' click={(e) => submitForm(e)} txt='Submit' />
             </form>

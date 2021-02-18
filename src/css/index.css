@@ -10,7 +10,7 @@
   --clear-off-white: #e1e1e182;
   --clear-white: #ffffff78;
   --clear-red: #ff00006b;
-  --clear-green: #00ff1135;
+  --clear-green: #68e170a9;
   --green: #093d0cd3;
   font-family: 'Roboto', sans-serif;
   scroll-behavior: smooth; }
@@ -214,6 +214,11 @@ button, input, textarea, select {
     left: -100%; }
   100% {
     left: 0; } }
+@keyframes slide-right-10 {
+  0% {
+    left: -80%; }
+  100% {
+    left: 10%; } }
 @keyframes slide-down {
   0% {
     top: -100%; }
@@ -234,7 +239,7 @@ button, input, textarea, select {
 #submit {
   background: var(--clear-white);
   backdrop-filter: blur(10px);
-  max-width: 45rem;
+  max-width: 50rem;
   position: fixed;
   top: 50%;
   transform: translateY(-50%);
@@ -242,7 +247,8 @@ button, input, textarea, select {
   left: 10%;
   border-radius: 1rem;
   box-shadow: 0 0 10px var(--grey);
-  overflow: hidden; }
+  overflow: hidden;
+  animation: slide-right-10 1s ease; }
   #submit .form {
     width: 100%; }
   #submit .form-inner {
@@ -251,47 +257,89 @@ button, input, textarea, select {
     padding: 0 1rem; }
   #submit .ingredients {
     max-height: 15rem;
-    overflow-y: scroll; }
+    overflow-y: scroll;
+    position: relative; }
     #submit .ingredients .ingredient {
+      display: flex;
       margin: 1rem 0; }
+      #submit .ingredients .ingredient .measure {
+        flex: 20%; }
+      #submit .ingredients .ingredient .item {
+        flex: 80%;
+        margin-left: 1rem; }
       #submit .ingredients .ingredient input:nth-last-of-type(odd) {
         float: right; }
   #submit .title {
     font-size: 400%;
     text-align: center;
-    margin-bottom: 2rem;
+    margin: 0 1rem 2rem;
     letter-spacing: 2px;
     font-weight: 400; }
   #submit .buttons {
     display: flex;
-    justify-content: flex-end; }
+    justify-content: flex-end;
+    margin: .5rem 0; }
     #submit .buttons .add {
-      background-color: var(--clear-green); }
+      background-color: var(--clear-green);
+      box-shadow: 0 0 5px var(--clear-green); }
+      #submit .buttons .add:hover {
+        box-shadow: 0 0 15px var(--clear-green); }
     #submit .buttons .remove {
       background-color: var(--clear-red);
+      box-shadow: 0 0 5px var(--clear-red);
       margin-left: 1rem; }
+      #submit .buttons .remove:hover {
+        box-shadow: 0 0 15px var(--clear-red); }
     #submit .buttons .button {
       padding: .75rem 1rem;
       border-radius: .5rem;
-      cursor: pointer; }
+      cursor: pointer;
+      transition: all .2s ease-in-out; }
   #submit .submit {
     width: 100%;
-    background: var(--grey);
-    font-size: 150%;
-    padding: .5rem 0;
+    background-color: var(--grey);
+    font-size: 200%;
+    padding: 1rem 0;
     margin-top: 1rem;
-    cursor: pointer; }
+    cursor: pointer;
+    color: var(--white);
+    transition: all 1s ease; }
+    #submit .submit:hover {
+      background-color: var(--clear-green); }
   #submit label {
-    font-size: 110%; }
+    font-size: 110%;
+    width: 100%; }
   #submit input,
   #submit textarea {
-    border: 1px solid var(--black);
+    border-bottom: 1px solid var(--grey);
     padding: .75rem;
     margin-bottom: .5rem;
-    border-radius: .5rem; }
+    font-size: 110%; }
   #submit textarea {
     resize: none;
     height: 5rem; }
+
+#home li, #home p {
+  font-size: 200%;
+  font-weight: 300; }
+#home li {
+  margin-left: 3rem;
+  list-style: circle; }
+#home .cheers {
+  margin-top: 4rem;
+  text-align: right;
+  color: var(--clear-red); }
+
+#contact .social-media {
+  display: flex;
+  flex-direction: column; }
+  #contact .social-media a {
+    margin-bottom: 1rem;
+    display: flex; }
+  #contact .social-media img {
+    width: 3rem; }
+  #contact .social-media span {
+    margin: auto 1rem; }
 
 #background {
   position: fixed;
@@ -327,6 +375,21 @@ button, input, textarea, select {
   .arrow.down {
     transform: rotate(45deg);
     -webkit-transform: rotate(45deg); }
+
+.card {
+  background: var(--clear-white);
+  backdrop-filter: blur(10px);
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 4rem 2rem;
+  left: 10%;
+  border-radius: 1rem;
+  animation: slide-right-10 1s ease; }
+  .card .title {
+    font-size: 400%;
+    font-weight: 300;
+    margin-bottom: 1rem; }
 
 .lds-dual-ring {
   display: inline-block;

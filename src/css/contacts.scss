@@ -1,0 +1,18 @@
+#contact{
+    .contact-card{
+    }
+    .social-media{
+        display: flex;
+        flex-direction: column;
+        a{
+            margin-bottom: 1rem;
+            display: flex;
+        }
+        img{
+            width: 3rem;
+        }
+        span{
+            margin: auto 1rem;
+        }
+    }
+}

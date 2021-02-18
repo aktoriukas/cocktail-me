@@ -15,6 +15,14 @@
         left: 0;
     }
 }
+@keyframes slide-right-10 {
+    0%{
+        left: -80%;
+    }
+    100%{
+        left: 10%;
+    }
+}
 @keyframes slide-down {
     0%{
         top: -100%;

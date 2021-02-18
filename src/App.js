@@ -1,12 +1,12 @@
 import './css/index.css'
 
 import Navigation from './Components/Navigation'
-import About from './Pages/About'
 import Cocktails from './Pages/Cocktails'
 import Home from './Pages/Home'
 import Background from './Components/Background'
 import Carret from './Components/Carret'
 import Submit from './Pages/Submit'
+import Contact from './Pages/Contact'
 
 import React, { useState } from 'react'
 
@@ -36,9 +36,9 @@ function App() {
         <Switch>
 
           <Route path='/' exact component={Home} />
-          <Route path='/about' component={About} />
           <Route path='/cocktails' exact component={Cocktails} />
           <Route path='/submit' exact component={Submit} />
+          <Route path='/contacts' exact component={Contact} />
 
         </Switch>
 
