@@ -6,6 +6,7 @@ import Cocktails from './Pages/Cocktails'
 import Home from './Pages/Home'
 import Background from './Components/Background'
 import Carret from './Components/Carret'
+import Submit from './Pages/Submit'
 
 import React, { useState } from 'react'
 
@@ -37,6 +38,7 @@ function App() {
           <Route path='/' exact component={Home} />
           <Route path='/about' component={About} />
           <Route path='/cocktails' exact component={Cocktails} />
+          <Route path='/submit' exact component={Submit} />
 
         </Switch>
 
