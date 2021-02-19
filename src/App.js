@@ -35,10 +35,10 @@ function App() {
 
         <Switch>
 
-          <Route path='/' exact component={Home} />
-          <Route path='/cocktails' exact component={Cocktails} />
-          <Route path='/submit' exact component={Submit} />
-          <Route path='/contacts' exact component={Contact} />
+          <Route path='/drink-me/' exact component={Home} />
+          <Route path='/drink-me/cocktails' exact component={Cocktails} />
+          <Route path='/drink-me/submit' exact component={Submit} />
+          <Route path='/drink-me/contacts' exact component={Contact} />
 
         </Switch>
 

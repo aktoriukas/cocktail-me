@@ -14,6 +14,7 @@ export default function Cocktails() {
     const [letter, setLetter] = useState('A')
     const [loading, setLoading] = useState(true)
     const [alphabet, setAlphabet] = useState(["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "W", "Y", "Z"])
+    const [out, setOut] = useState(false)
 
     useEffect(() => {
         fetchCocktails()
@@ -30,6 +31,7 @@ export default function Cocktails() {
         const cocktail = await data.json();
         setCocktail(cocktail.drinks[0])
         setActiveCocktailID(id)
+        setOut(false)
         setCocktailVisible(true)
     }
     const handleClick = (letter) => {
@@ -37,9 +39,14 @@ export default function Cocktails() {
         setLoading(true)
         setLetter(letter)
     }
+    const closeCocktail = () => {
+        setOut(true)
+        setTimeout(() => { setCocktailVisible(false) }, 250)
+
+    }
 
     return (
-        <section id='cocktails'>
+        <section id='cocktails' className={cocktailVisible ? 'cocktail' : ''}>
             <div className='left' >
                 <ul className='alphabet'>
                     {alphabet.map(item => (
@@ -68,8 +75,8 @@ export default function Cocktails() {
                 </ul>
             </div>
             {cocktailVisible ?
-                <div className='right'>
-                    <Cocktail cocktail={cocktail} />
+                <div className={`right ${out ? 'out' : ''}`}>
+                    <Cocktail close={closeCocktail} cocktail={cocktail} />
                 </div>
                 : ''
             }

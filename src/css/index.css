@@ -119,8 +119,7 @@ button, input, textarea, select {
         font-weight: 300;
         color: var(--clear-white);
         text-shadow: 0px 0px 1px var(--black);
-        position: relative;
-        backdrop-filter: blur(10px); }
+        position: relative; }
         #cocktails .left .alphabet .letter:hover::after {
           left: 0; }
         #cocktails .left .alphabet .letter::after {
@@ -157,6 +156,14 @@ button, input, textarea, select {
     top: 50%;
     transform: translateY(-50%);
     animation: slide-left .5s ease; }
+    #cocktails .right .close {
+      position: absolute;
+      top: 3rem;
+      right: 1rem;
+      font-size: 150%;
+      color: var(--grey);
+      cursor: pointer;
+      display: none; }
     #cocktails .right .container {
       background-color: var(--clear-white);
       display: flex;
@@ -203,6 +210,36 @@ button, input, textarea, select {
       margin: auto;
       font-size: 150%;
       font-weight: 300; }
+  @media (max-width: 1050px) {
+    #cocktails .left, #cocktails .right {
+      max-width: 100%;
+      width: 100%;
+      left: 0;
+      padding: 2rem 0;
+      transition: all 1s ease; }
+      #cocktails .left .cocktail-list .item, #cocktails .right .cocktail-list .item {
+        font-size: 175%; }
+    #cocktails .right .container,
+    #cocktails .right .ingredience {
+      padding: .75rem 0; }
+      #cocktails .right .container tbody tr td,
+      #cocktails .right .ingredience tbody tr td {
+        padding: .25rem; }
+    #cocktails .right .about {
+      max-width: 90%;
+      font-size: 110%; }
+    #cocktails .right .name {
+      letter-spacing: 1px;
+      padding-top: 1rem; }
+    #cocktails.cocktail .left {
+      opacity: 0; }
+    #cocktails .right {
+      animation: slide-right-10-full .5s ease; }
+      #cocktails .right .close {
+        display: inherit; }
+      #cocktails .right.out {
+        transition: left .2s ease;
+        left: -100%; } }
 
 @keyframes lds-dual-ring {
   0% {
@@ -219,6 +256,11 @@ button, input, textarea, select {
     left: -80%; }
   100% {
     left: 10%; } }
+@keyframes slide-right-10-full {
+  0% {
+    left: -80%; }
+  100% {
+    left: 0%; } }
 @keyframes slide-down {
   0% {
     top: -100%; }
@@ -229,6 +271,11 @@ button, input, textarea, select {
     right: -100%; }
   100% {
     right: 10%; } }
+@keyframes slide-left-full {
+  0% {
+    right: -100%; }
+  100% {
+    right: 100%; } }
 @keyframes pulse-padding {
   0% {
     padding: 1rem; }
@@ -246,9 +293,9 @@ button, input, textarea, select {
   padding: 2rem 0 0;
   left: 10%;
   border-radius: 1rem;
-  box-shadow: 0 0 10px var(--grey);
   overflow: hidden;
-  animation: slide-right-10 1s ease; }
+  animation: slide-right-10 1s ease;
+  width: 100%; }
   #submit .form {
     width: 100%; }
   #submit .form-inner {
@@ -258,7 +305,8 @@ button, input, textarea, select {
   #submit .ingredients {
     max-height: 15rem;
     overflow-y: scroll;
-    position: relative; }
+    position: relative;
+    max-width: 100%; }
     #submit .ingredients .ingredient {
       display: flex;
       margin: 1rem 0; }
@@ -294,7 +342,9 @@ button, input, textarea, select {
       padding: .75rem 1rem;
       border-radius: .5rem;
       cursor: pointer;
-      transition: all .2s ease-in-out; }
+      transition: all .2s ease-in-out;
+      color: var(--white);
+      font-size: 110%; }
   #submit .submit {
     width: 100%;
     background-color: var(--grey);
@@ -318,6 +368,17 @@ button, input, textarea, select {
   #submit textarea {
     resize: none;
     height: 5rem; }
+  @media (max-width: 700px) {
+    #submit {
+      padding-top: 5rem;
+      position: relative;
+      top: 0;
+      left: 0%;
+      transform: none;
+      width: 100%;
+      overflow: scroll;
+      animation: slide-right-10-full 1s ease;
+      border-radius: 0; } }
 
 #home li, #home p {
   font-size: 200%;
@@ -390,6 +451,11 @@ button, input, textarea, select {
     font-size: 400%;
     font-weight: 300;
     margin-bottom: 1rem; }
+  @media (max-width: 991.98px) {
+    .card {
+      left: 0;
+      width: 90%;
+      animation: slide-right-10-full 1s ease; } }
 
 .lds-dual-ring {
   display: inline-block;

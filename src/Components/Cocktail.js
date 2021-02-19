@@ -4,8 +4,6 @@ import react, { useState, useEffect } from 'react';
 export default function Cocktail(props) {
 
     const { strDrink, strDrinkThumb, strInstructions } = props.cocktail
-    console.log(props.cocktail)
-
     let ingredience = []
 
     const buildIngredience = () => {
@@ -43,6 +41,7 @@ export default function Cocktail(props) {
                     <p>{strInstructions}</p>
                 </div>
             </div>
+            <span onClick={props.close} className='close'>✖</span>
         </section>
     )
 }
